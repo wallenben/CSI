@@ -1,0 +1,4 @@
+﻿  Cost.cpp
+C:\Users\cooki\source\repos\Lab03p1\Lab03p1\Cost.cpp(70,25): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\cooki\source\repos\Lab03p1\Lab03p1\Cost.cpp(86,40): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Lab03p1.vcxproj -> C:\Users\cooki\source\repos\Lab03p1\Debug\Lab03p1.exe

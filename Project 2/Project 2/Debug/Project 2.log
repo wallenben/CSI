@@ -1,0 +1,4 @@
+﻿  project2.cpp
+C:\Users\cooki\source\repos\Project 2\Project 2\project2.cpp(238,6): warning C4101: 'fileAccessCount': unreferenced local variable
+C:\Users\cooki\source\repos\Project 2\Project 2\project2.cpp(256): warning C4715: 'processFileInfo': not all control paths return a value
+  Project 2.vcxproj -> C:\Users\cooki\source\repos\Project 2\Debug\Project 2.exe

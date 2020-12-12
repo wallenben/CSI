@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\cooki\source\repos\midtermp2\midtermp2\Source.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\cooki\source\repos\midtermp2\midtermp2\Source.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  midtermp2.vcxproj -> C:\Users\cooki\source\repos\midtermp2\Debug\midtermp2.exe

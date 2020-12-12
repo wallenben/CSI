@@ -1,0 +1,8 @@
+1 -> Not prime
+2 -> Prime
+3 -> Prime
+4 -> Not prime
+5 -> Prime
+6 -> Not prime
+7 -> Prime
+8 -> Not prime

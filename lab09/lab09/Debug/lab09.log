@@ -1,0 +1,4 @@
+﻿  ballot.cpp
+C:\Users\cooki\source\repos\lab09\lab09\ballot.cpp(45,24): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\cooki\source\repos\lab09\lab09\ballot.cpp(54): warning C4715: 'Ballot::findVote': not all control paths return a value
+  lab09.vcxproj -> C:\Users\cooki\source\repos\lab09\Debug\lab09.exe

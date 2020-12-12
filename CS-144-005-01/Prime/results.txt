@@ -1,0 +1,2 @@
+8 -> Not prime
+9 -> Not prime

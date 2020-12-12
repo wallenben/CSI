@@ -1,0 +1,9 @@
+57 -> Not prime
+95 -> Not prime
+357 -> Not prime
+85 -> Not prime
+13 -> Prime
+2 -> Prime
+0 -> Not prime
+89 -> Prime
+1031 -> Prime
