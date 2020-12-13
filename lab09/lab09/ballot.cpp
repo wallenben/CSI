@@ -76,16 +76,18 @@ int Ballot::countInPersonVotes() {
         }
     }
     return count;
-}
+}//wtf is this
+//review copy-constructor logic. 
+//copying the vote-point array logic SHOULD make sense. Unsure on how to do the other ones.
 Ballot::Ballot(const Ballot& origBallot) {
-    const Vote* x;
-    for (int i; i < votesStored < i++) {
-        
-        x = new Vote(origBallot.getVote(i));
-
+    Vote* x;
+    voterID = new string;
+    int voteCount;
+    for (int i; i < votesStored < i++;) {
+        Vote x = *(origBallot.votePointer[i]);
     }
-    dataObject = new Vote;
-    *dataObject = *(origBallot.getVoterId);
+    *voterID = *(origBallot.getVoterId);
+}
 
     /**
     For the copy constructor, copy the voter id and the count of the votes in the array from
