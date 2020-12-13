@@ -77,3 +77,23 @@ int Ballot::countInPersonVotes() {
     }
     return count;
 }
+Ballot::Ballot(const Ballot& origBallot) {
+    const Vote* x;
+    for (int i; i < votesStored < i++) {
+        
+        x = new Vote(origBallot.getVote(i));
+
+    }
+    dataObject = new Vote;
+    *dataObject = *(origBallot.getVoterId);
+
+    /**
+    For the copy constructor, copy the voter id and the count of the votes in the array from
+the parameter.
+For the votes, use a loop that goes over the parameter’s array. Create a new Vote using
+the information in the parameter’s vote. Assign the new Vote to the corresponding
+position in the class’s array.
+
+    */
+
+}

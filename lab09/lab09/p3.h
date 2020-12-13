@@ -122,6 +122,13 @@ public:
      * votesStored = 0;
      * @param voterID2 is the voterID
      */
+    //maybe change name of this depending on how it is implemented down the line
+    Ballot(const Ballot& origBallot);
+    //Declare an assignment operator for Ballot. The parameter should be a Ballot object
+    //and it should be constand passed by reference
+    Ballot& operator = (const Ballot& ballot);
+    friend ostream& operator<<(ostream& out, const Ballot& ballot);
+    friend istream& operator>>(istream& in, Ballot& ballot);
     Ballot(string voterID2);
     /**
      * @brief Destroy the Ballot object
