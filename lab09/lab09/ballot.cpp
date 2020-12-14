@@ -4,98 +4,118 @@
 using namespace std;
 
 string Ballot::getVoterId() const {
-    return voterID;
+	return voterID;
 }
 int Ballot::getVoteCount() const {
-    return votesStored;
+	return votesStored;
 }
 Ballot::Ballot(string voterID2) {
-    //set string param to voterID
-    voterID = voterID2;
-    votesStored = 0;
+	//set string param to voterID
+	voterID = voterID2;
+	votesStored = 0;
 }
 Ballot::Ballot() {
-    //same thing, default becomes "Invalid ID"
-    voterID = "Invalid Id";
-    votesStored = 0;
+	//same thing, default becomes "Invalid ID"
+	voterID = "Invalid Id";
+	votesStored = 0;
 }
 Ballot::~Ballot() {
-    /**this is what the prompt asks for, technically.
-    the book details that this can be achieved in a more simple matter --
-    using the delete[] operator, but that would nuke the whole array - not whats asked
-    */
-    for (int i = 0; i < votesStored; ++i) {
-        delete votePointer[i];
-    }
+	/**this is what the prompt asks for, technically.
+	the book details that this can be achieved in a more simple matter --
+	using the delete[] operator, but that would nuke the whole array - not whats asked
+	*/
+	for (int i = 0; i < votesStored; ++i) {
+		delete votePointer[i];
+	}
 }
-const Vote * Ballot::getVote(int votePosition) const {
-    //if the parameter is within the used portion of the array
-    if (votePosition >= 0 && votePosition < votesStored) {
-        //return the voter pointer based on position
-        return votePointer[votePosition];
-    }
-    else { return nullptr; }
+const Vote* Ballot::getVote(int votePosition) const {
+	//if the parameter is within the used portion of the array
+	if (votePosition >= 0 && votePosition < votesStored) {
+		//return the voter pointer based on position
+		return votePointer[votePosition];
+	}
+	else { return nullptr; }
 }
 int Ballot::findVote(string office) const {
-    bool validCheck = false;
-    //For each Voter pointer in the array, get the office and then compare it to the parameter.
-    for (int i = 0; i < votesStored; ++i) {
-        if (votePointer[i]->getOffice() == office) {
-            //validCheck for the else statement
-            validCheck == true;
-            //If it matches, return the position of that value
-            return i;
-        }
-    }
-    //otherwise return -1 after looping
-    if (validCheck == false) {
-        return -1;
-    }
+	//For each Voter pointer in the array, get the office and then compare it to the parameter.
+	for (int i = 0; i < votesStored; ++i) {
+		if (votePointer[i]->getOffice() == office) {
+			//validCheck for the else statement
+			//If it matches, return the position of that value
+			return i;
+		}
+	}
+	//otherwise return -1 after looping
+	return -1;
 }
 void Ballot::recordVote(string office, string candidateName, bool voteInPerson) {
-    if (votesStored + 1 < 6) {
-        int x = findVote(office);
-        if (x == -1) {
-            //dynamically create a newVote object
-            Vote* x;
-            x = new Vote(office, candidateName, voteInPerson);
-            //put that new value in the first unused position
-            votePointer[votesStored] = x;
-            ////Increment the class’s variable
-            ++votesStored;
-        }
-    }
+	if (votesStored + 1 < 6) {
+		int x = findVote(office);
+		if (x == -1) {
+			//dynamically create a newVote object
+			Vote* x;
+			x = new Vote(office, candidateName, voteInPerson);
+			//put that new value in the first unused position
+			votePointer[votesStored] = x;
+			////Increment the class’s variable
+			++votesStored;
+		}
+	}
 }
 int Ballot::countInPersonVotes() {
-    int count = 0;
-    for (int i = 0; i < votesStored; ++i) {
-        bool x = false;
-        x = votePointer[i]->wasInPerson();
-        if (x == true) {
-            count++;
-        }
-    }
-    return count;
+	int count = 0;
+	for (int i = 0; i < votesStored; ++i) {
+		bool x = false;
+		x = votePointer[i]->wasInPerson();
+		if (x == true) {
+			count++;
+		}
+	}
+	return count;
 }//wtf is this
 //review copy-constructor logic. 
 //copying the vote-point array logic SHOULD make sense. Unsure on how to do the other ones.
+//this needs two tests
 Ballot::Ballot(const Ballot& origBallot) {
-    Vote* x;
-    voterID = new string;
-    int voteCount;
-    for (int i; i < votesStored < i++;) {
-        Vote x = *(origBallot.votePointer[i]);
-    }
-    *voterID = *(origBallot.getVoterId);
+	voterID == (origBallot.voterID);
+	Vote* x;
+	//hopefully this is alright, no pointers needed
+	votesStored == (origBallot.votesStored);
+	for (int i = 0; i < votesStored < i++;) {
+		x = (origBallot.votePointer[i]);
+		votePointer[i] = x;
+	}
 }
+//needs two tests
+Ballot& Ballot::operator = (const Ballot& ballot) {
+	voterID == (ballot.voterID);
+	votesStored == (ballot.votesStored);
+	for (int i = 0; i < votesStored < i++;) {
+		delete ballot.votePointer[i];
+	}
+	return *this;
+}
+//two tests needed
+ostream& operator<<(ostream& out, const Ballot& ballot) {
+	out << ballot.getVoterId() << '\n';
+	for (int i = 0; i < ballot.votesStored < i++;) {
+		out << ballot.votePointer[i]->getOffice() << '\n';
+		out << ballot.votePointer[i]->getCandidate() << '\n';
 
-    /**
-    For the copy constructor, copy the voter id and the count of the votes in the array from
-the parameter.
-For the votes, use a loop that goes over the parameter’s array. Create a new Vote using
-the information in the parameter’s vote. Assign the new Vote to the corresponding
-position in the class’s array.
-
-    */
-
+	}
+	return out;
+}
+istream& operator>>(istream& in, Ballot& ballot) {
+	for (int i = 0; i < ballot.votesStored < i++;) {
+		delete ballot.votePointer[i];
+	}
+	ballot.votesStored = 0;
+	in >> ballot.voterID;
+	int ballotCount;
+	in >> ballotCount;
+	//on compiler error: switch < to != maybe
+	for (int i = 0; i < ballotCount; i++) {
+		in >> ballot.votePointer[i]
+	}
+	return in;
 }

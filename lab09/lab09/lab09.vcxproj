@@ -145,6 +145,7 @@
     <ClCompile Include="ballot.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="election.cpp" />
+    <ClCompile Include="p3.cpp" />
     <ClCompile Include="vote.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
