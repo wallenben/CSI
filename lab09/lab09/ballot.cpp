@@ -113,9 +113,18 @@ istream& operator>>(istream& in, Ballot& ballot) {
 	in >> ballot.voterID;
 	int ballotCount;
 	in >> ballotCount;
+	string candidatex;
+	string officex;
+	bool inOfficeCheck;
 	//on compiler error: switch < to != maybe
 	for (int i = 0; i < ballotCount; i++) {
-		in >> ballot.votePointer[i]
+		ballot.votePointer[i]->getCandidate() = candidatex;
+		in >> candidatex;
+		ballot.votePointer[i]->getOffice() = officex;
+		in >> officex;
+		ballot.votePointer[i]->wasInPerson() == inOfficeCheck;
+		in >> inOfficeCheck;
+
 	}
 	return in;
 }
