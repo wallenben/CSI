@@ -105,6 +105,7 @@ ostream& operator<<(ostream& out, const Ballot& ballot) {
 	}
 	return out;
 }
+//also requries two tests
 istream& operator>>(istream& in, Ballot& ballot) {
 	for (int i = 0; i < ballot.votesStored < i++;) {
 		delete ballot.votePointer[i];
@@ -127,4 +128,9 @@ istream& operator>>(istream& in, Ballot& ballot) {
 
 	}
 	return in;
+}
+BallotList::BallotList(){
+	numBallots = 0;
+	currentArraySize = 4;
+
 }
