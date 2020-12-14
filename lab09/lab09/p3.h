@@ -230,7 +230,7 @@ class BallotList {
 private:
 	//this ballot* will probably need to be rewritten. check VOD on dynamic 
 	//arrays
-	Ballot* ballotPointer = new Ballot[currentArraySize];
+	Ballot* ballotPointer; //new Ballot[currentArraySize];
 	int currentArraySize;
 	int numBallots;
 public:

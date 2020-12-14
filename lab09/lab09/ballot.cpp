@@ -146,5 +146,9 @@ BallotList::~BallotList() {
 int BallotList::getNumBallots() const {
     return numBallots;
 }
-
-
+Ballot* BallotList::getBallot(int ballotPosition) {
+    //check if the parameter (the position in the list to retrieve) is valid
+    if (ballotPosition < numBallots) {
+        return ballotPointer[ballotPosition];
+    }
+}
