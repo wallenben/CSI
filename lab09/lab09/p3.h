@@ -261,4 +261,5 @@ public:
 
 private:
 	BallotList* listPointer;
+
 };
