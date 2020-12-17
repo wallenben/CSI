@@ -225,6 +225,11 @@ public:
 	 */
 	int findVote(string office) const;
 };
+/**
+ * @class BallotList
+ * @brief 
+ * 
+ */
 class BallotList {
 	//objective of class is to store items dyanmically - reference VOD
 private:
