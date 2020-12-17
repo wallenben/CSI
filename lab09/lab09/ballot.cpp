@@ -116,7 +116,7 @@ istream& operator>>(istream& in, Ballot& ballot) {
 	in >> ballotCount;
 	string candidatex;
 	string officex;
-	bool inOfficeCheck;
+	bool inOfficeCheck = true;
 	//on compiler error: switch < to != maybe
 	for (int i = 0; i < ballotCount; i++) {
 		ballot.votePointer[i]->getCandidate() = candidatex;
@@ -170,7 +170,7 @@ void BallotList::addBallot(Ballot ballot) {
 //2 tests needed
 Ballot* BallotList::findBallot(string voterID) {
 	for (int i = 0; i < currentArraySize; i++) {
-		if (ballotPointer[i].getVoterId() == voterID ){
+		if (ballotPointer[i].getVoterId() == voterID) {
 			//validCheck for the else statement
 			//If it matches, return the position of that value
 			return &ballotPointer[i];
@@ -178,7 +178,7 @@ Ballot* BallotList::findBallot(string voterID) {
 	}
 	//otherwise return -1 after looping
 	return nullptr;
-	}
+}
 //2 tests
 int BallotList::countBallotFor(string office, string candidateName) const {
 	int count = 0;
@@ -203,3 +203,18 @@ void BallotList::resetList() {
 	currentArraySize = 0;
 	numBallots = 0;
 }
+VoteSummary::VoteSummary(BallotList* listPointer2) {
+	listPointer = listPointer2;
+}
+BallotList* VoteSummary::getBallot() {
+	return listPointer;
+}
+void VoteSummary::loadVoterData(istream i) {
+	if (listPointer != nullptr) {
+		listPointer->resetList();
+
+	}
+}
+
+////vote <voter id> <office> <candidate> <in person>
+/// ballot <voter id> <count> <office1> <candidate1> <in person1> <offic

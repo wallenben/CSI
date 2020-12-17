@@ -251,9 +251,9 @@ public:
 	int getTotalVotesCast() const;
 	void resetList();
 };
-class VoteSumamry {
+class VoteSummary {
 public:
-	VoteSumamry(BallotList* listpointer);
+	VoteSummary(BallotList* listpointer2);
 	BallotList* getBallot();
 	void loadVoterData(istream i);
 	string printVoteRecord();
