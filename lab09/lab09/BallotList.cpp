@@ -99,7 +99,7 @@ void VoteSummary::loadVoterData(istream i) {
 		i >> identifier;
 		if (identifier == "ballot") {
 			i >> voteID; // voteid
-			i >> count; // count
+			i >> count; // count 
 			for (int x = 0; x < count; x++) {
 				i >> office1; // office
 				i >> candidate1;
