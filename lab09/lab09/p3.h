@@ -227,8 +227,8 @@ public:
 };
 /**
  * @class BallotList
- * @brief 
- * 
+ * @brief
+ *
  */
 class BallotList {
 	//objective of class is to store items dyanmically - reference VOD
@@ -250,4 +250,15 @@ public:
 	int countBallotFor(string office, string candidateName) const;
 	int getTotalVotesCast() const;
 	void resetList();
+};
+class VoteSumamry {
+public:
+	VoteSumamry(BallotList* listpointer);
+	BallotList* getBallot();
+	void loadVoterData(istream i);
+	string printVoteRecord();
+	string printElectionReport(Election electionArray[], int arraySize);
+
+private:
+	BallotList* listPointer;
 };

@@ -179,3 +179,27 @@ Ballot* BallotList::findBallot(string voterID) {
 	//otherwise return -1 after looping
 	return nullptr;
 	}
+//2 tests
+int BallotList::countBallotFor(string office, string candidateName) const {
+	int count = 0;
+	for (int i = 0; i < currentArraySize; i++) {
+		if (ballotPointer[i].getVote(i)->getOffice() == office) {
+			if (ballotPointer[i].getVote(i)->getCandidate() == office) {
+				++count;;
+			}
+		}
+	}
+	return count;
+}
+//1 test
+int BallotList::getTotalVotesCast() const {
+	int vote = 0;
+	for (int i = 0; i < currentArraySize; i++) {
+		vote += ballotPointer[i].getVoteCount();
+	}
+	return vote;
+}
+void BallotList::resetList() {
+	currentArraySize = 0;
+	numBallots = 0;
+}

@@ -1,11 +1,2 @@
-﻿  ballot.cpp
-C:\Users\WallenBenjamin\OneDrive - University of Wisconsin-Stout\Misc\Documents\projects\lab09\lab09\ballot.cpp(93,20): warning C4804: '<': unsafe use of type 'bool' in operation
-C:\Users\WallenBenjamin\OneDrive - University of Wisconsin-Stout\Misc\Documents\projects\lab09\lab09\ballot.cpp(101,20): warning C4804: '<': unsafe use of type 'bool' in operation
-C:\Users\WallenBenjamin\OneDrive - University of Wisconsin-Stout\Misc\Documents\projects\lab09\lab09\ballot.cpp(110,20): warning C4804: '<': unsafe use of type 'bool' in operation
-C:\Users\WallenBenjamin\OneDrive - University of Wisconsin-Stout\Misc\Documents\projects\lab09\lab09\ballot.cpp(126,40): warning C4553: '==': result of expression not used; did you intend '='?
-  main.cpp
-  election.cpp
-  vote.cpp
-  Generating Code...
-C:\Users\WallenBenjamin\OneDrive - University of Wisconsin-Stout\Misc\Documents\projects\lab09\lab09\ballot.cpp(155): warning C4715: 'BallotList::getBallot': not all control paths return a value
+﻿  main.cpp
   lab09.vcxproj -> C:\Users\WallenBenjamin\OneDrive - University of Wisconsin-Stout\Misc\Documents\projects\lab09\Debug\lab09.exe
