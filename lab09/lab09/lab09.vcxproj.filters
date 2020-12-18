@@ -35,5 +35,11 @@
     <ClCompile Include="p3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BallotList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VoteSummary.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

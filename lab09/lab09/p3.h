@@ -247,16 +247,16 @@ public:
 	void addBallot(Ballot ballot);
 	//comments on this one demand more than just ballotptr
 	Ballot* findBallot(string voterID);
-	int countBallotFor(string office, string candidateName) const;
+	int countBallotsFor(string office, string candidateName) const;
 	int getTotalVotesCast() const;
 	void resetList();
 };
 class VoteSummary {
 public:
 	VoteSummary(BallotList* listpointer2);
-	BallotList* getBallot();
-	void loadVoterData(istream i);
-	string printVoteRecord();
+	BallotList* getBallots();
+	void loadVoterData(istream &i);
+	string printVoterRecord();
 	string printElectionReport(Election electionArray[], int arraySize);
 
 private:

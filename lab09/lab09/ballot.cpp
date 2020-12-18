@@ -1,6 +1,7 @@
 #include "p3.h"
 #include <string>
 #include <iostream>
+#include <sstream>
 using namespace std;
 
 string Ballot::getVoterId() const {
@@ -106,26 +107,66 @@ ostream& operator<<(ostream& out, const Ballot& ballot) {
 	return out;
 }
 //also requries two tests
-istream& operator>>(istream& in, Ballot& ballot) {
-	for (int i = 0; i < ballot.votesStored < i++;) {
-		delete ballot.votePointer[i];
-	}
-	ballot.votesStored = 0;
-	in >> ballot.voterID;
-	int ballotCount;
-	in >> ballotCount;
+/*istream& operator>>(istream& in, Ballot& ballot) {
 	string candidatex;
 	string officex;
 	bool inOfficeCheck = true;
-	//on compiler error: switch < to != maybe
+
+
+	//loop and delete each pointer
+	for (int i = 0; i < ballot.votesStored < i++;) {
+		delete ballot.votePointer[i];
+	}
+	//set votes to zero
+	ballot.votesStored = 0;
+	//read-in voterid (test works)
+	in >> ballot.voterID;
+	int ballotCount = ballot.getVoteCount();
+	//read-in count
+	in >> ballotCount;
+	//loop to read ballotCount votes
 	for (int i = 0; i < ballotCount; i++) {
+		//this crashes the program, xstring error.
 		ballot.votePointer[i]->getCandidate() = candidatex;
 		in >> candidatex;
 		ballot.votePointer[i]->getOffice() = officex;
 		in >> officex;
 		ballot.votePointer[i]->wasInPerson() == inOfficeCheck;
 		in >> inOfficeCheck;
+	}
+	//this needs to call recordVote, but this must be solved first
+	return in;
+}*/
+istream& operator>>(istream& in, Ballot& ballot) {
+	string localID;
+	int localCount = 0;
+	//vote needs locals too!!
+	string localOffice;
+	string localCandidate;
+	bool boolTest;
 
+	in >> localID;
+	Ballot* ball = new Ballot(localID);
+	in >> localCount;
+	for (int i = 0; i < localCount; i++) {
+		in >> localOffice;
+		in >> localCandidate;
+		in >> boolTest;
+		ball->recordVote(localOffice, localCandidate, boolTest);
 	}
 	return in;
 }
+
+
+
+
+/*	string candidatex;
+int localCount;
+in >> localCount;
+
+for (int i = 0; i < ballotCount; i++) {
+	//this crashes the program, xstring error.
+	ballot.votePointer[i]->getCandidate() = candidatex;
+	in >> candidatex;
+	//honestly feelsbad
+}*/

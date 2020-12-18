@@ -143,10 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ballot.cpp" />
+    <ClCompile Include="BallotList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="election.cpp" />
     <ClCompile Include="p3.cpp" />
     <ClCompile Include="vote.cpp" />
+    <ClCompile Include="VoteSummary.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

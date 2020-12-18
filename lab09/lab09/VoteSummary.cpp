@@ -8,10 +8,10 @@ using namespace std;
 VoteSummary::VoteSummary(BallotList* listPointer2) {
 	listPointer = listPointer2;
 }
-BallotList* VoteSummary::getBallot() {
+BallotList* VoteSummary::getBallots() {
 	return listPointer;
 }
-void VoteSummary::loadVoterData(istream i) {
+void VoteSummary::loadVoterData(istream &i) {
 	//BALLOT VOTE FUNCTIONS
 	string identifier;
 	string voteID;
@@ -49,14 +49,14 @@ void VoteSummary::loadVoterData(istream i) {
 		}
 	}
 }
-string VoteSummary::printVoteRecord() {
+string VoteSummary::printVoterRecord() {
 	stringstream ss;
 	string stringy;
 	if (listPointer == nullptr) {
 		return "";
 	}
 	else {
-		ss << "Votes" << '/n';
+		ss << "Votes" << '\n';
 		for (int i = 0; i < listPointer->getNumBallots(); i++) {
 			ss << listPointer[i].getBallot(i) << '\n';
 		}
@@ -80,16 +80,16 @@ string VoteSummary::printElectionReport(Election electionArray[], int arraySize)
 		tempCandidate = electionArray[i].getCandidate1();
 		ss << tempOffice << '\n';
 		ss << tempCandidate << setw(5) << right <<
-			listPointer->countBallotFor(tempOffice, tempCandidate)
+			listPointer->countBallotsFor(tempOffice, tempCandidate)
 			<< '\n';
 		tempCandidate = electionArray[i].getCandidate2();
 		ss << tempCandidate << setw(5) << right <<
-			listPointer->countBallotFor(tempOffice, tempCandidate)
+			listPointer->countBallotsFor(tempOffice, tempCandidate)
 			<< '\n';
 	}
 	ss.str(stringster);
 	return stringster;
-
+}
 	////vote <voter id> <office> <candidate> <in person>
 	/// ballot <voter id> <count> <office1> <candidate1> <in person1> <office>
 	/// //ballot WI-1598-MHN 2 DA Banshee 0 ADA Nightcrawler 0 \n

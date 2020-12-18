@@ -54,7 +54,7 @@ Ballot* BallotList::findBallot(string voterID) {
 	return nullptr;
 }
 //2 tests
-int BallotList::countBallotFor(string office, string candidateName) const {
+int BallotList::countBallotsFor(string office, string candidateName) const {
 	int count = 0;
 	for (int i = 0; i < currentArraySize; i++) {
 		for (int z = 0; z < ballotPointer[i].getVoteCount(); i++) {
