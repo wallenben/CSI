@@ -115,6 +115,18 @@ public:
 	* votesStored is zero
 	*/
 	Ballot();
+	 //maybe change name of this depending on how it is implemented down the line
+	 /**
+	  * @brief Construct a new Ballot object
+	  * 
+	  * @param origBallot 
+	  */
+	Ballot(const Ballot& origBallot);
+	//Declare an assignment operator for Ballot. The parameter should be a Ballot object
+	//and it should be constand passed by reference
+	Ballot& operator = (const Ballot& ballot);
+	friend ostream& operator<<(ostream& out, const Ballot& ballot);
+	friend istream& operator>>(istream& in, Ballot& ballot);
 	/**
 	 * @brief Construct a new Ballot object
 	 * Construtor for Ballot(string)
@@ -122,13 +134,6 @@ public:
 	 * votesStored = 0;
 	 * @param voterID2 is the voterID
 	 */
-	 //maybe change name of this depending on how it is implemented down the line
-	Ballot(const Ballot& origBallot);
-	//Declare an assignment operator for Ballot. The parameter should be a Ballot object
-	//and it should be constand passed by reference
-	Ballot& operator = (const Ballot& ballot);
-	friend ostream& operator<<(ostream& out, const Ballot& ballot);
-	friend istream& operator>>(istream& in, Ballot& ballot);
 	Ballot(string voterID2);
 	/**
 	 * @brief Destroy the Ballot object
@@ -228,20 +233,36 @@ public:
 /**
  * @class BallotList
  * @brief creates a list of the balots
- * 
- *
+ * This class contains information to store ballots in 
+ * a list.
  */
 class BallotList {
-	//objective of class is to store items dyanmically - reference VOD
 private:
-	//this ballot* will probably need to be rewritten. check VOD on dynamic 
-	//arrays
+	/**array of ballots*/
 	Ballot* ballotPointer; //new Ballot[currentArraySize];
+	/**current size of the array*/
 	int currentArraySize;
+	/**number of ballots in the array*/
 	int numBallots;
 public:
+	/**
+	* @brief Construct a new BallotList object
+	* This is the default constructor for BallotList
+	* numBallots becomes 0
+	* currentArraySize becomes 4
+	* ballotPointer initializes with a size of 4
+	*/
 	BallotList();
+	/**
+	 * @brief Destroy the BallotList object
+	 * Destructor for BallotList objects
+	 */
 	~BallotList();
+	/**
+	 * @brief Get the Num Ballots object
+	 * Returns the number of ballots currently in the array
+	 * @return int 
+	 */
 	int getNumBallots() const;
 	Ballot* getBallot(int ballotPosition);
 	const Ballot* getBallot(int ballotPosition) const;
