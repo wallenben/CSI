@@ -1,3 +1,13 @@
+/*
+* @file VoteSummary.cpp
+*
+* @brief Contains the functions related to the VoteSummary class
+* This file contains all functions pertaining to the VoteSummary
+* class detailed in the header.
+*
+* @date 17 - Dec - 2020
+* @author Ben Wallen
+*/
 #include "p3.h"
 #include <string>
 #include <iostream>
@@ -8,7 +18,7 @@ using namespace std;
 VoteSummary::VoteSummary(BallotList* listPointer2) {
 	listPointer = listPointer2;
 }
-BallotList* VoteSummary::getBallots() {
+BallotList * VoteSummary::getBallots() {
 	return listPointer;
 }
 void VoteSummary::loadVoterData(istream &i) {
@@ -90,6 +100,3 @@ string VoteSummary::printElectionReport(Election electionArray[], int arraySize)
 	ss.str(stringster);
 	return stringster;
 }
-	////vote <voter id> <office> <candidate> <in person>
-	/// ballot <voter id> <count> <office1> <candidate1> <in person1> <office>
-	/// //ballot WI-1598-MHN 2 DA Banshee 0 ADA Nightcrawler 0 \n

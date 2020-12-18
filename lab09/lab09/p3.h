@@ -1,3 +1,14 @@
+/**
+* A forward:
+* Keeping my other finals in mind, I no longer have the time to improve this project further.
+* That being said, I enjoyed working on this project immensely. This ended up being my favorite class
+* of the semester -- I even ended up switching my major to a coding-orientated discipline, so thank you for that.
+*
+* I have tailored this code with design and readability in mind. I would imagine some functions work the way I
+* typed them, not the way I want them to work.
+*
+* Thank you for the fun semester. Ben
+*/
 #pragma once
 #include <string>
 using namespace std;
@@ -11,9 +22,9 @@ class Election {
 private:
     /** office ID variable*/
     string office;
-    /** first canidate's name variable*/
+    /** first candidate's name variable*/
     string firstCanidiateName;
-    /** second canidate's name variable*/
+    /** second candidate's name variable*/
     string secondCanidiateName;
 public:
     /**
@@ -115,21 +126,87 @@ public:
     * votesStored is zero
     */
     Ballot();
-    //maybe change name of this depending on how it is implemented down the line
     /**
      * @brief Construct a new Ballot object
+     * Copy constructor for Ballot objects
+     * @param origBallot is the ballot being copied
+     * Tests:
+     * Ballot ballot("Taco");
+     * Ballot ballotCopy(ballot);
+     * cout << ballot;
+     * Ballot ballot("");
+     * Ballot ballotCopy(ballot);
+     * cout << ballot;
      *
-     * @param origBallot
+     * Output should be the same as ballot for both.
      */
     Ballot(const Ballot& origBallot);
-    //Declare an assignment operator for Ballot. The parameter should be a Ballot object
-    //and it should be constand passed by reference
-    Ballot& operator = (const Ballot& ballot);
+    /**
+     * @brief Assignment operator for Ballot
+     * This assignment operator overload 
+     * will allow ballots to equal eachother
+     * @param ballot is the ballot being used
+     * @return *this
+     * Tests:
+     * Ballot ballot1;
+     * Ballot ballot2;
+     * ballot1 = ballot2
+     * should reference ballot1
+     * ballot1.recordVote("aa", "xx", false);
+     * ballot2 = ballot1;
+     * cout << ballot2;
+     */
+    Ballot & operator = (const Ballot& ballot);
+    /**
+     * @brief Insertion operator for Ballot
+     * This insertion operator allows for the output
+     * of certain Vote-based variables.
+     * @param out is the output stream
+     * @param ballot is the ballot being used
+     * 
+     * Tests:
+     * Ballot ballotx("bruh");
+     * ballotx.recordVote("taco", "bell", "false");
+     * cout << ballotx;
+     * Output:
+     * bruh
+     *      taco bell;
+     * ballotx.recordVote("arbys", "mcdonalds", "true");
+     * cout << ballotx;
+     * Output:
+     * bruh
+     *      arbys mcdonalds (In person)
+     */
     friend ostream& operator<<(ostream& out, const Ballot& ballot);
+    /**
+     * @brief Extraction operator for Ballot
+     * This extraction operator certain vote
+     * based variables to be read-in
+     * @param in is the input stream
+     * @param ballot is the ballot being used
+     * 
+     * Tests: 
+     * stringstream ss;
+     * ss << "ww" "1" "ee" "zz" 0
+     * Ballot ballotx;
+     * ss >> ballotx;
+     * cout << ballotx << endl;
+     * Output:
+     * ww
+     *    ee zz 
+     * 
+     * ss << "Test" "1" "John" "Doe" 1
+     * ss >> ballotx;
+     * cout << ballotx << endl;
+     * Output
+     * Test
+     *      John Doe (In person)
+     * 
+     */
     friend istream& operator>>(istream& in, Ballot& ballot);
     /**
      * @brief Construct a new Ballot object
-     * Construtor for Ballot(string)
+     * Constructor for Ballot(string)
      * voterID equals voterID2
      * votesStored = 0;
      * @param voterID2 is the voterID
@@ -283,6 +360,16 @@ public:
      * @brief adds a ballot to the ballotList
      * This class will add a ballot to the ballotList above
      * @param ballot is the ballot being added
+     * Tests:
+     * Ballot zz("hi"), Ballot xz("hii"), Ballot cz("hiii"), Ballot bz("hiiiii"), Ballot growth("array grown");
+     * zz.recordVote("default" "lol" 1);
+     * zz.recordVote("default" "lol" 0);
+     * listPointer.addBallot(zz);
+     * listPointer.addBallot(xz);
+     * listPointer.addBallot(cz);
+     * listPointer.addBallot(bz);
+     * listPointer.addBallot(growth);
+     * The array should grow after the fifth implementation.
      */
     void addBallot(Ballot ballot);
     /**
@@ -290,6 +377,10 @@ public:
      * This class finds a specific ballot based off the voterID
      * @param voterID is the id used to find the ballot
      * @return Ballot*
+     * listpointer.findBallot(hi);
+     * This should output the pointer to ballot zz.
+     * listpointer.findBallot(fakeballot);
+     * This should output nullptr.
      */
     Ballot* findBallot(string voterID);
     /**
@@ -299,29 +390,82 @@ public:
      * @param office is the office in question
      * @param candidateName is the candidate being counted for
      * @return int is the amount of ballots
+     * Tests:
+     * listPointer.countBallotsFor(default, lol);
+     * Output should be 2.
+     * listPointer.countBallotsFor(fake, fake);
+     * Output should be zero.
      */
     int countBallotsFor(string office, string candidateName) const;
     /**
      * @brief Get the total votes cast
-     * This will find the total votes cast in a specific ballot
+     * This will find the total votes cast in a specific ballotList
      * @return int of how many votes are cast
+     * Tests:
+     * Ballot ballotx("hi");
+     * ballotx.recordVote("asdf" "asdf" true);
+     * listPointer.addBallot(ballotx);
+     * cout << listPointer.getTotalVotesCast();
+     * Output: 1
+     * 
      */
     int getTotalVotesCast() const;
     /**
      * @brief resets the list
      * This will reset the list.
+     * Test:
+     * Ballot xz("hi");
+     * ballotx.recordVote("asdf" "asdf" true);
+     * listPointer.addBallot(xz);
+     * listPointer.resetList();
      */
     void resetList();
 };
+/**
+ * @class VoteSummary
+ * @brief creates a summary of the results
+ * This outputs the summary of results from the BallotList
+ * and Election objects.
+ */
 class VoteSummary {
 public:
+    /**
+     * @brief Construct a new Vote Summary object
+     * This constructor makes listPointer equal the param
+     * @param listpointer2 is the param
+     */
     VoteSummary(BallotList* listpointer2);
+    /**
+     * @brief Get the Ballots object
+     * This will return the ballotList (listPointer)
+     * @return BallotList*
+     */
     BallotList* getBallots();
+    /**
+     * @brief loads voter data based on istream input
+     * This will load ballot & voter data based on the istream
+     * input. Based on what kind of input it is, it will be recorded
+     * @param i is the istream
+     */
     void loadVoterData(istream& i);
+    /**
+     * @brief prints the record of Voters
+     * This prints everything related to voter data using a
+     * stringstream class.
+     * @return string
+     */
     string printVoterRecord();
+    /**
+     * @brief prints the election report
+     * This will output the election report, which includes the amount of votes
+     * for each candidate in a district.
+     * @param electionArray is the electionArray being used
+     * @param arraySize is the size of the array
+     * @return string
+     */
     string printElectionReport(Election electionArray[], int arraySize);
 
 private:
+    /**this is the ballotList being used in the functions */
     BallotList* listPointer;
-
 };

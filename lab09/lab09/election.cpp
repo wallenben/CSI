@@ -1,3 +1,14 @@
+/*
+* @file election.cpp
+*
+* @brief Contains the functions related to the election class
+* This file contains all functions pertaining to the election
+* class detailed in the header. 
+* This is mainly code from Lab09.
+*
+* @date 17 - Dec - 2020
+* @author Ben Wallen
+*/
 #include "p3.h"
 #include <string>
 using namespace std;

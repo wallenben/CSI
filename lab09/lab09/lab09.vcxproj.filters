@@ -32,9 +32,6 @@
     <ClCompile Include="election.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="p3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BallotList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

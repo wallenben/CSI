@@ -1,3 +1,14 @@
+/*
+* @file vote.cpp
+*
+* @brief Contains the functions related to the vote class
+* This file contains all functions pertaining to the vote
+* class detailed in the header.
+* This is mainly code from Lab09.
+*
+* @date 17 - Dec - 2020
+* @author Ben Wallen
+*/
 #include "p3.h"
 #include <string>
 using namespace std;

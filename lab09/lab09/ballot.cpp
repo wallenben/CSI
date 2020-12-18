@@ -1,3 +1,13 @@
+/*
+* @file ballot.cpp
+*
+* @brief Contains the functions related to the ballot class
+* This file contains all functions pertaining to the ballot
+* class detailed in the header.
+*
+* @date 17 - Dec - 2020
+* @author Ben Wallen
+*/
 #include "p3.h"
 #include <string>
 #include <iostream>
@@ -29,7 +39,7 @@ Ballot::~Ballot() {
 		delete votePointer[i];
 	}
 }
-const Vote* Ballot::getVote(int votePosition) const {
+const Vote * Ballot::getVote(int votePosition) const {
 	//if the parameter is within the used portion of the array
 	if (votePosition >= 0 && votePosition < votesStored) {
 		//return the voter pointer based on position
@@ -73,22 +83,17 @@ int Ballot::countInPersonVotes() {
 		}
 	}
 	return count;
-}//wtf is this
-//review copy-constructor logic. 
-//copying the vote-point array logic SHOULD make sense. Unsure on how to do the other ones.
-//this needs two tests
-
-
+}
 Ballot::Ballot(const Ballot& origBallot) {
 	voterID = (origBallot.voterID);
 	//hopefully this is alright
 	votesStored = (origBallot.votesStored);
 	for (int i = 0; i < votesStored; i++) {
-		votePointer[i] = new Vote(origBallot.votePointer[i]->getOffice(), origBallot.votePointer[i]->getCandidate(), origBallot.votePointer[i]->wasInPerson());
+		votePointer[i] = new Vote(origBallot.votePointer[i]->getOffice(),
+			origBallot.votePointer[i]->getCandidate(), origBallot.votePointer[i]->wasInPerson());
 	}
 }
-//needs two tests
-Ballot& Ballot::operator = (const Ballot& ballot) {
+Ballot & Ballot::operator = (const Ballot & ballot) {
 	voterID = (ballot.voterID);
 	votesStored = (ballot.votesStored);
 	for (int i = 0; i < votesStored < i++;) {
@@ -96,48 +101,19 @@ Ballot& Ballot::operator = (const Ballot& ballot) {
 	}
 	return *this;
 }
-//two tests needed
-ostream& operator<<(ostream& out, const Ballot& ballot) {
+ostream & operator << (ostream & out, const Ballot & ballot) {
 	out << ballot.getVoterId() << '\n';
 	for (int i = 0; i < ballot.votesStored < i++;) {
 		out << ballot.votePointer[i]->getOffice() << '\n';
-		out << ballot.votePointer[i]->getCandidate() << '\n';
+		out << ballot.votePointer[i]->getCandidate();
+		if (ballot.votePointer[i]->wasInPerson() == true) {
+			out << "(In person)" << '\n';
+		}
 
 	}
 	return out;
 }
-//also requries two tests
-/*istream& operator>>(istream& in, Ballot& ballot) {
-	string candidatex;
-	string officex;
-	bool inOfficeCheck = true;
-
-
-	//loop and delete each pointer
-	for (int i = 0; i < ballot.votesStored < i++;) {
-		delete ballot.votePointer[i];
-	}
-	//set votes to zero
-	ballot.votesStored = 0;
-	//read-in voterid (test works)
-	in >> ballot.voterID;
-	int ballotCount = ballot.getVoteCount();
-	//read-in count
-	in >> ballotCount;
-	//loop to read ballotCount votes
-	for (int i = 0; i < ballotCount; i++) {
-		//this crashes the program, xstring error.
-		ballot.votePointer[i]->getCandidate() = candidatex;
-		in >> candidatex;
-		ballot.votePointer[i]->getOffice() = officex;
-		in >> officex;
-		ballot.votePointer[i]->wasInPerson() == inOfficeCheck;
-		in >> inOfficeCheck;
-	}
-	//this needs to call recordVote, but this must be solved first
-	return in;
-}*/
-istream& operator>>(istream& in, Ballot& ballot) {
+istream & operator >> (istream & in, Ballot & ballot) {
 	string localID;
 	int localCount = 0;
 	//vote needs locals too!!
@@ -162,17 +138,3 @@ istream& operator>>(istream& in, Ballot& ballot) {
 	}
 	return in;
 }
-
-
-
-
-/*	string candidatex;
-int localCount;
-in >> localCount;
-
-for (int i = 0; i < ballotCount; i++) {
-	//this crashes the program, xstring error.
-	ballot.votePointer[i]->getCandidate() = candidatex;
-	in >> candidatex;
-	//honestly feelsbad
-}*/
