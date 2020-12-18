@@ -227,7 +227,8 @@ public:
 };
 /**
  * @class BallotList
- * @brief
+ * @brief creates a list of the balots
+ * 
  *
  */
 class BallotList {

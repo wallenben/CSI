@@ -144,15 +144,21 @@ istream& operator>>(istream& in, Ballot& ballot) {
 	string localOffice;
 	string localCandidate;
 	bool boolTest;
+	//loop and delete each pointer
+	for (int i = 0; i < ballot.votesStored < i++;) {
+		delete ballot.votePointer[i];
+	}
+	//set votes to zero
+	ballot.votesStored = 0;
 
 	in >> localID;
-	Ballot* ball = new Ballot(localID);
+	ballot.voterID = localID;
 	in >> localCount;
 	for (int i = 0; i < localCount; i++) {
 		in >> localOffice;
 		in >> localCandidate;
 		in >> boolTest;
-		ball->recordVote(localOffice, localCandidate, boolTest);
+		ballot.recordVote(localOffice, localCandidate, boolTest);
 	}
 	return in;
 }
