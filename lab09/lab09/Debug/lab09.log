@@ -1,2 +1,13 @@
-﻿  main.cpp
-  lab09.vcxproj -> C:\Users\WallenBenjamin\OneDrive - University of Wisconsin-Stout\Misc\Documents\projects\lab09\Debug\lab09.exe
+﻿  ballot.cpp
+C:\Users\cooki\source\repos\projects\lab09\lab09\ballot.cpp(99,20): warning C4804: '<': unsafe use of type 'bool' in operation
+C:\Users\cooki\source\repos\projects\lab09\lab09\ballot.cpp(106,20): warning C4804: '<': unsafe use of type 'bool' in operation
+C:\Users\cooki\source\repos\projects\lab09\lab09\ballot.cpp(124,20): warning C4804: '<': unsafe use of type 'bool' in operation
+  BallotList.cpp
+  main.cpp
+  election.cpp
+  vote.cpp
+  VoteSummary.cpp
+  Generating Code...
+C:\Users\cooki\source\repos\projects\lab09\lab09\BallotList.cpp(44): warning C4715: 'BallotList::getBallot': not all control paths return a value
+C:\Users\cooki\source\repos\projects\lab09\lab09\BallotList.cpp(39): warning C4715: 'BallotList::getBallot': not all control paths return a value
+  lab09.vcxproj -> C:\Users\cooki\source\repos\projects\lab09\Debug\lab09.exe
